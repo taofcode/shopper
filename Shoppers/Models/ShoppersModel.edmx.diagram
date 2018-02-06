@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1ccbb8c1624c43a586b8e027b0d99164" Name="Diagram1">
+        <EntityTypeShape EntityType="shopperModel.Cart" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.Category" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.Charge" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.Customer" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.DeliveryAddress" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.Enquiry" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.ProductItem" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.Setting" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.Stock" Width="1.5" PointX="3.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopperModel.Transaction" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="shopperModel.FK_Charges_Carts" ManuallyRouted="false" />
+        <AssociationConnector Association="shopperModel.FK_ProductItems_Carts" ManuallyRouted="false" />
+        <AssociationConnector Association="shopperModel.FK_Transactions_Carts" ManuallyRouted="false" />
+        <AssociationConnector Association="shopperModel.FK_Charges_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="shopperModel.FK_Stocks_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="shopperModel.FK_DeliveryAddresses_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="shopperModel.FK_Transactions_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="shopperModel.FK_ProductItems_Stock" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

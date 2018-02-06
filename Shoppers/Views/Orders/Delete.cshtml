@@ -1,0 +1,89 @@
+﻿@model Shoppers.Models.Transaction
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Transaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Currency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultXML)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultXML)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cart.CartId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cart.CartId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

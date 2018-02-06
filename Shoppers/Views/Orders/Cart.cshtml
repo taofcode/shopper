@@ -1,0 +1,72 @@
+﻿@model Shoppers.Models.Cart
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Cart</h2>
+
+<div>
+    <h4>Cart</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CartId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CartId)
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+            
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+        <th>
+          Cart Code
+        </th>
+        <th>
+        Stock Item
+        </th>
+        <th>
+          Qty
+        </th>
+      
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ProductItems)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cart.CartId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+        
+            <td>
+      
+            </td>
+        </tr>
+
+
+    }
+    </table>
+        <p>
+
+            @Html.ActionLink("Back to Orders", "Index")
+        </p>

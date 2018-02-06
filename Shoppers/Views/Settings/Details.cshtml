@@ -1,0 +1,35 @@
+﻿@model Shoppers.Models.Setting
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Setting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VariableName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VariableName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VariableValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VariableValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

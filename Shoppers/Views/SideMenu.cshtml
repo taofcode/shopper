@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Shoppers.Models.Category>
+   <!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+    <ul class="nav navbar-nav nav_1">
+@foreach (var item in Model)
+{
+        <li><a href="~/Home/Stock?id=@item.CategoryId">@item.CategoryId</a></li>
+
+}
+    </ul>
+</div><!-- /.navbar-collapse -->
