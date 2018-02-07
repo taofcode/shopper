@@ -11,12 +11,12 @@ namespace Shoppers.Controllers
     {
         private shopperEntities db = new shopperEntities();
 
-        public ActionResult Index()
+        public ActionResult TestIndex()
         {
             return View();
         }
-      [Authorize]
-        public ActionResult AdminDashboard()
+         [Authorize]
+        public ActionResult Index()
         {
             return View();
         }

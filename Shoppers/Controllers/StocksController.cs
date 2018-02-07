@@ -11,6 +11,7 @@ using System.IO;
 
 namespace Shoppers.Controllers
 {
+    [Authorize]
     public class StocksController : Controller
     {
         private shopperEntities db = new shopperEntities();

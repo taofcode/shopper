@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Shoppers.Models;
 using System.Web.Security;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Shoppers.Controllers
 {
@@ -61,12 +62,12 @@ namespace Shoppers.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-        [AllowAnonymous]
-        public ActionResult LoginUsers(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
+        //[AllowAnonymous]
+        //public ActionResult LoginUsers(string returnUrl)
+        //{
+        //    ViewBag.ReturnUrl = returnUrl;
+        //    return View();
+        //}
 
         //
         // POST: /Account/Login
@@ -193,15 +194,21 @@ namespace Shoppers.Controllers
                 if (result.Succeeded)
                 {
                     //   await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                    String role = form["Admin"].ToString();
-                    Roles.AddUserToRole(user.UserName, role);                    
+                    String role = form["Role"].ToString();
+                    var roleManager = new RoleManager<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+
+                    if (!roleManager.RoleExists(role))
+                        roleManager.Create(new IdentityRole(role));
+              
+                    var roleresult = UserManager.AddToRole(user.Id, role);
+                                    
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("AdminDashboard", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }

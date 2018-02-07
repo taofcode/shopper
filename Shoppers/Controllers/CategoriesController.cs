@@ -10,6 +10,7 @@ using Shoppers.Models;
 
 namespace Shoppers.Controllers
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         private shopperEntities db = new shopperEntities();
